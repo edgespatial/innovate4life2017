@@ -1,0 +1,86 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-size: 18px;
+}
+
+/*
+* Customizing bootstrap
+*/
+.alt-grid [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.alt-grid .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* container adjusted */
+.alt-grid .container-fluid {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
+
+.navbar {
+    -webkit-box-shadow: 0 5px 4px -4px #999;
+    -moz-box-shadow: 0 5px 4px -4px #999;
+    box-shadow: 0 5px 4px -4px #999;
+    /* the rest of your styling */
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* navbar */
+.navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+    text-align: center;
+}
+
+/* navbar height */
+.navbar {
+    min-height: 75px;
+}
+
+.navbar-brand {
+    padding: 0 15px;
+    height: 75px;
+    line-height: 75px;
+}
+
+/*
+* Theme
+*/
+.nav.navbar-nav.navbar-right li a {
+    color: #c800e3;
+}
+
+/*
+* Brand icon
+*/
+.brand-icon {
+    width: 185px;
+    height: 70px;
+    margin-top: 5px;
+}
+
+/*
+ * Defaults
+ */
+
+.btn {
+    font-size: 18px;
+}
+
+.jumbotron h1 {
+    color: #605ca8
+}
+
+.jumbotron p {
+    color: #180de3
+}
+
+

@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Results
+    </div>
+    <table class="panel-body table">
+        <tr>
+            <th>Name</th>
+            <th>More details</th>
+        </tr>
+        {% for centre in centres %}
+            <tr>
+                <td>{{ centre.name }}</td>
+                <td><span><a href="{{ centre.get_absolute_url}}" class="btn btn-info" role="button">Details</a></span>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% if not centres %}
+    <div class="container">
+        <span> No Health Facility  found.</span>
+    </div>
+{% endif %}

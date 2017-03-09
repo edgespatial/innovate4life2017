@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block sidebar-menu %}
+    <ul class="sidebar-menu">
+        <li class="header">DASHBOARD</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="/dashboard"><i class="fa fa-map-marker"></i> <span>Mapping</span></a></li>
+        <li><a href="/dashboard/prenatal"><i class="fa fa-child"></i> <span>Prenatal Care</span></a></li>
+        <li class="active"><a href="/dashboard/analysis"><i class="fa fa-link"></i> <span>Analysis</span></a></li>
+    </ul>
+{% endblock sidebar-menu %}
+{% block content-header %}
+    <h1>
+        Analysis
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active"><a href="/dashboard/analysis"><i class="fa fa-child"></i> Analysis</a></li>
+    </ol>
+{% endblock content-header %}
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Malaria Mapping and Analysis</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body no-padding">
+                        <div id="malaria-map" style="height: 400px; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+{% block page-js %}
+    <script>
+        var map = L.map('malaria-map', {
+            center: [-1.30323720, 36.77813964],
+            zoom: 6
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 16,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        function getColor(d) {
+            return d > 50000 ? '#800026' :
+                    d > 40000 ? '#BD0026' :
+                            d > 300000 ? '#E31A1C' :
+                                    d > 20000 ? '#FC4E2A' :
+                                            d > 10000 ? '#FD8D3C' :
+                                                    d > 5000 ? '#FEB24C' :
+                                                            d > 2000 ? '#FED976' :
+                                                                    '#FFEDA0';
+        }
+        function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.Malaria),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+
+        var malaria_layer;
+        var info = L.control();
+
+        info.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update();
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        info.update = function (props) {
+            this._div.innerHTML = '<h4>Malaria Prevalance</h4>' + (props ?
+                    '<b>' + props.COUNTY + '</b><br />' + props.Malaria + ' /100,000 People'
+                            : 'Hover over a County');
+        };
+
+        info.addTo(map);
+        function highlightFeature(e) {
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+            info.update(layer.feature.properties);
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+        }
+        function resetHighlight(e) {
+            malaria_layer.resetStyle(e.target);
+            info.update();
+        }
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+        malaria_layer = L.geoJson(null, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(map);
+
+        var data_url = '/static/data/malaria.geojson';
+        $.getJSON(data_url, function (data) {
+            malaria_layer.addData(data);
+            map.fitBounds(malaria_layer.getBounds());
+            map.addLayer(malaria_layer);
+        });
+
+    </script>
+{% endblock page-js %}

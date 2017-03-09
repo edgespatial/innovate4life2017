@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% block sidebar-menu %}
+    <ul class="sidebar-menu">
+        <li class="header">DASHBOARD</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="/dashboard"><i class="fa fa-map-marker"></i> <span>Mapping</span></a></li>
+        <li class="active"><a href="/dashboard/prenatal"><i class="fa fa-child"></i> <span>Prenatal Care</span></a></li>
+        <li><a href="/dashboard/analysis"><i class="fa fa-link"></i> <span>Analysis</span></a></li>
+    </ul>
+{% endblock sidebar-menu %}
+{% block content-header %}
+    <h1>
+        Prenatal Care
+        <small>Prenatal care Information and statistics</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="/dashboard/prenatal"><i class="fa fa-child"></i> Prenatal</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock content-header %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary collapsed-box">
+                    <div class="box-header">
+                        <h3 class="box-title">Curently under Prenatal Care</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Name</th>
+                                <th>First</th>
+                                <th>Second</th>
+                                <th>Third</th>
+                                <th>Fourth</th>
+                            </tr>
+                            {% for underp in under_prenatal %}
+                                <tr>
+                                    <td> {{ underp.name }}</td>
+                                    <td>{% if underp.first_visit.complete == True %}Complete{% else %}Not
+                                        yet{% endif %}</td>
+                                    <td>{% if underp.second_visit.complete == True %}Complete{% else %}Not
+                                        yet{% endif %}</td>
+                                    <td>{% if underp.third_visit.complete == True %}Complete{% else %}Not
+                                        yet{% endif %}</td>
+                                    <td>{% if underp.fourth_visit.complete == True %}Complete{% else %}Not
+                                        yet{% endif %}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+                <!-- /.box -->
+                <div class="box box-success collapsed-box">
+                    <div class="box-header">
+                        <h3 class="box-title">Complete First Visits</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Name</th>
+                                <th>Risk Level</th>
+                                <th>Next Visit</th>
+                                <th>Reminder SMS</th>
+                            </tr>
+                            {% for comf in first_complete %}
+                                <tr>
+                                    <td> {{ comf.name }}</td>
+                                    <td>{{ comf.first_visit.risk_level }}</td>
+                                    <td>{{ comf.first_visit.next_visit }}</td>
+                                    <td><span><button type="button" class="btn btn-xs btn-warning">Send</button></span>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+
+                </div>
+                <div class="box box-success collapsed-box">
+                    <div class="box-header">
+                        <h3 class="box-title">Complete Second Visits</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Name</th>
+                                <th>Risk Level</th>
+                                <th>Next Visit</th>
+                                <th>Reminder SMS</th>
+                            </tr>
+                            {% for coms in second_complete %}
+                                <tr>
+                                    <td> {{ coms.name }}</td>
+                                    <td>{{ coms.second_visit.risk_level }}</td>
+                                    <td>{{ coms.second_visit.next_visit }}</td>
+                                    <td><span><button type="button" class="btn btn-xs btn-warning">Send</button></span>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+                <div class="box box-success collapsed-box">
+                    <div class="box-header">
+                        <h3 class="box-title">Complete Third Visits</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Name</th>
+                                <th>Risk Level</th>
+                                <th>Next Visit</th>
+                                <th>Reminder SMS</th>
+                            </tr>
+                            {% for comt in third_complete %}
+                                <tr>
+                                    <td> {{ comt.name }}</td>
+                                    <td>{{ comt.first_visit.risk_level }}</td>
+                                    <td>{{ comt.first_visit.next_visit }}</td>
+                                    <td><span><button type="button" class="btn btn-xs btn-warning">Send</button></span>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+                <div class="box box-success collapsed-box">
+                    <div class="box-header">
+                        <h3 class="box-title">Complete Fourth Visits</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Name</th>
+                                <th>Risk Level</th>
+                            </tr>
+                            {% for comff in fourth_complete %}
+                                <tr>
+                                    <td> {{ comff.name }}</td>
+                                    <td>{{ comff.first_visit.risk_level }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- /.content -->
+{% endblock content %}

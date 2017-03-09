@@ -1,0 +1,708 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.66809,
+            -0.83089
+          ]
+        ]
+      },
+      "properties": {
+        "name": "BOIGE DISP",
+        "district": "GUCHA",
+        "location": "NYAKEMBENE",
+        "sub_location": "NYAKORERE",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.81434,
+            -0.88272
+          ]
+        ]
+      },
+      "properties": {
+        "name": "CHIENGU SDA DISP",
+        "district": "GUCHA",
+        "location": "RIGENA",
+        "sub_location": "NYANTIRA",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.72132,
+            -0.9121
+          ]
+        ]
+      },
+      "properties": {
+        "name": "EBEREGE DISP",
+        "district": "GUCHA",
+        "location": "MAGENCHE",
+        "sub_location": "MOKUBO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.6593,
+            -0.90237
+          ]
+        ]
+      },
+      "properties": {
+        "name": "ETAGO DISP",
+        "district": "GUCHA",
+        "location": "GETENGA",
+        "sub_location": "NYARAMBA(GUCHA)",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.82809,
+            -0.89926
+          ]
+        ]
+      },
+      "properties": {
+        "name": "GESABAKWA DISP",
+        "district": "GUCHA",
+        "location": "BASSI BOGETAORIO",
+        "sub_location": "NYANGUSO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.72523,
+            -0.88964
+          ]
+        ]
+      },
+      "properties": {
+        "name": "KENYENYA SDA DISP",
+        "district": "GUCHA",
+        "location": "SENGERA",
+        "sub_location": "BOSOTI",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7811,
+            -0.78227
+          ]
+        ]
+      },
+      "properties": {
+        "name": "KENYERERE  DISP",
+        "district": "GUCHA",
+        "location": "MOKWERERO",
+        "sub_location": "KENYERERE",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7763,
+            -0.81407
+          ]
+        ]
+      },
+      "properties": {
+        "name": "KIONYO DISP",
+        "district": "GUCHA",
+        "location": "BASSI MASIGE EAST",
+        "sub_location": "TURWA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7966,
+            -0.90464
+          ]
+        ]
+      },
+      "properties": {
+        "name": "MAGENA DISP",
+        "district": "GUCHA",
+        "location": "MAJOGE BORABU",
+        "sub_location": "KIANGO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.72318,
+            -0.94649
+          ]
+        ]
+      },
+      "properties": {
+        "name": "MAGENCHE DISP",
+        "district": "GUCHA",
+        "location": "MAGENCHE",
+        "sub_location": "MAGENCHE",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.648,
+            -0.90102
+          ]
+        ]
+      },
+      "properties": {
+        "name": "METABURO DISP",
+        "district": "GUCHA",
+        "location": "GETENGA",
+        "sub_location": "NYARAMBA(GUCHA)",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.68447,
+            -0.74101
+          ]
+        ]
+      },
+      "properties": {
+        "name": "MISESI DISP",
+        "district": "GUCHA",
+        "location": "MAJOGE CHACHE",
+        "sub_location": "MISESI",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.6315,
+            -0.88662
+          ]
+        ]
+      },
+      "properties": {
+        "name": "MOTICHO DISP",
+        "district": "GUCHA",
+        "location": "GETENGA",
+        "sub_location": "NYABERA(GUCHA)",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.64843,
+            -0.86685
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYAKEYO S.D.A DISP",
+        "district": "GUCHA",
+        "location": "GETENGA",
+        "sub_location": "NYATARO",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.74936,
+            -0.75958
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYANSAKIA DISP",
+        "district": "GUCHA",
+        "location": "BASSI CHACHE",
+        "sub_location": "BOGETAORIO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.63857,
+            -0.74203
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYATIKE DISP",
+        "district": "GUCHA",
+        "location": "S. MUGIRANGO CHACHE",
+        "sub_location": "BOMONYARA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7801,
+            -0.54683
+          ]
+        ]
+      },
+      "properties": {
+        "name": "ERAMBA DISP",
+        "district": "KISII CENTRAL",
+        "location": "MWAGICHANA",
+        "sub_location": "KIOMONCHA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.8628,
+            -0.57172
+          ]
+        ]
+      },
+      "properties": {
+        "name": "ISECHA DISP",
+        "district": "KISII CENTRAL",
+        "location": "NGENYI",
+        "sub_location": "GESANGERO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.841,
+            -0.54225
+          ]
+        ]
+      },
+      "properties": {
+        "name": "KEGOGI DISP",
+        "district": "KISII CENTRAL",
+        "location": "KEGOGI",
+        "sub_location": "NGOKORO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.8826,
+            -0.82867
+          ]
+        ]
+      },
+      "properties": {
+        "name": "KIAMOKOMA DISP",
+        "district": "KISII CENTRAL",
+        "location": "NYARIBARI CENTRAL",
+        "sub_location": "CHIRONGE",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7091,
+            -0.71492
+          ]
+        ]
+      },
+      "properties": {
+        "name": "MASONGO DISP",
+        "district": "KISII CENTRAL",
+        "location": "BOMORENDA",
+        "sub_location": "BOMAKOMBI",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7202,
+            -0.6285
+          ]
+        ]
+      },
+      "properties": {
+        "name": "MATONGO DISP",
+        "district": "KISII CENTRAL",
+        "location": "BOMARIBA",
+        "sub_location": "BOROKO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.74403,
+            -0.6522
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYABURURU MISS DISP",
+        "district": "KISII CENTRAL",
+        "location": "TOWNSHIP",
+        "sub_location": "MWAMOSIOMA(TOWNSHIP)",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.81804,
+            -0.58266
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYAGESENDA SDA DISP",
+        "district": "KISII CENTRAL",
+        "location": "SENSI",
+        "sub_location": "SENSI",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.8068,
+            -0.7401
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYAGUTA DISP",
+        "district": "KISII CENTRAL",
+        "location": "KIOGORO",
+        "sub_location": "NYAGUTA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.807,
+            -0.75678
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYAKWANA DISP",
+        "district": "KISII CENTRAL",
+        "location": "KIOGORO",
+        "sub_location": "MATUMWA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7013,
+            -0.6367
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYAMAGUNDO DISP",
+        "district": "KISII CENTRAL",
+        "location": "BOMARIBA",
+        "sub_location": "BOROKO",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.82343,
+            -0.78103
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYAMAGWA SDA DISP",
+        "district": "KISII CENTRAL",
+        "location": "IBENO",
+        "sub_location": "NYAMAGWA(CKISII)",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.9552,
+            -0.8213
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYAMASIBI DISP",
+        "district": "KISII CENTRAL",
+        "location": "NYARIBARI MASABA",
+        "sub_location": "NYAMASIBI",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.76585,
+            -0.67766
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYANCHWA SDA DISP",
+        "district": "KISII CENTRAL",
+        "location": "BOSONGO",
+        "sub_location": "NYANCHWA",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.77067,
+            -0.57085
+          ]
+        ]
+      },
+      "properties": {
+        "name": "NYASORE SDA DISP.",
+        "district": "KISII CENTRAL",
+        "location": "MWAKIBAGENDI",
+        "sub_location": "NYAMAGE",
+        "agency": "MISS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.9731,
+            -0.89348
+          ]
+        ]
+      },
+      "properties": {
+        "name": "RAMASHA DISP",
+        "district": "KISII CENTRAL",
+        "location": "NYARIBARI IKORONGO",
+        "sub_location": "METEMBE(MASABA)",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7119,
+            -0.59879
+          ]
+        ]
+      },
+      "properties": {
+        "name": "RANGANGA  DISP",
+        "district": "KISII CENTRAL",
+        "location": "ETORA",
+        "sub_location": "RAGANGA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.7628,
+            -0.57032
+          ]
+        ]
+      },
+      "properties": {
+        "name": "SIEKA DISP",
+        "district": "KISII CENTRAL",
+        "location": "MWAKIBAGENDI",
+        "sub_location": "ONYWERE",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.98721,
+            -0.85967
+          ]
+        ]
+      },
+      "properties": {
+        "name": "SOSERA DISP",
+        "district": "KISII CENTRAL",
+        "location": "NYARIBARI IKORONGO",
+        "sub_location": "SOSERA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.8565,
+            -0.75647
+          ]
+        ]
+      },
+      "properties": {
+        "name": "TARACHA DISP",
+        "district": "KISII CENTRAL",
+        "location": "KEUMBU",
+        "sub_location": "TARACHA",
+        "agency": "MOH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            34.8736,
+            -0.53398
+          ]
+        ]
+      },
+      "properties": {
+        "name": "OGANGO DISP",
+        "district": "KISII NORTH",
+        "location": "KEERA",
+        "sub_location": "CHARACHANI",
+        "agency": "MOH"
+      }
+    }
+  ]
+}

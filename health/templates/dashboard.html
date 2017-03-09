@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% block sidebar-menu %}
+    <ul class="sidebar-menu">
+        <li class="header">DASHBOARD</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li class="active"><a href="/dashboard"><i class="fa fa-map-marker"></i> <span>Mapping</span></a></li>
+        <li><a href="/dashboard/prenatal"><i class="fa fa-child"></i> <span>Prenatal Care</span></a></li>
+        <li><a href="/dashboard/analysis"><i class="fa fa-link"></i> <span>Analysis</span></a></li>
+    </ul>
+{% endblock sidebar-menu %}
+
+{% block content-header %}
+    <h1>
+        Maps and Visualizations
+        <small>Maternal Mapping and Visualizations</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock content-header %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <!-- Map box -->
+        <div class="box box-success">
+            <div class="box-header">
+                <!-- tools box -->
+                <i class="fa fa-map-marker"></i>
+                <h3 class="box-title">
+                    Health Centre Pregnancy Map
+                </h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                            class="fa fa-times"></i></button>
+                </div>
+                <!-- /. tools -->
+            </div>
+            <div class="box-body no-padding">
+                <div id="hospitals-map" style="height: 325px; width: 100%;"></div>
+            </div>
+            <!-- /.box-body-->
+        </div>
+        <!-- /.box -->
+        {#        <div class="box box-success">#}
+        {#            <div class="box-header">#}
+        {#                <!-- tools box -->#}
+        {#                <i class="fa fa-map-marker"></i>#}
+        {#                <h3 class="box-title">#}
+        {#                    Distances To Health Facility#}
+        {#                </h3>#}
+        {#                <div class="box-tools pull-right">#}
+        {#                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i#}
+        {#                            class="fa fa-minus"></i>#}
+        {#                    </button>#}
+        {#                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i#}
+        {#                            class="fa fa-times"></i></button>#}
+        {#                </div>#}
+        {#                <!-- /. tools -->#}
+        {#            </div>#}
+        {#            <div class="box-body no-padding">#}
+        {#                <div id="distance-map" style="height: 325px; width: 100%;"></div>#}
+        {#            </div>#}
+        {#            <!-- /.box-body-->#}
+        {#        </div>#}
+    </section>
+
+    <!--content -->
+{% endblock content %}
+
+{% block page-js %}
+
+    <script>
+        var map = L.map('hospitals-map', {
+            center: [-1.30323720, 36.77813964],
+            zoom: 6
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 16,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var hospital_id = '{{request.user.healthfacility.id}}';
+        var health_facility_url = '/api/healthfacilitiesdata/' + hospital_id;
+        var mother_data_url = '/api/motherdata/?home_health_facility=' + hospital_id;
+        var health_facility = L.geoJson(null, {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: "/static/img/health-medical.png",
+                        iconSize: [20, 25],
+                        popupAnchor: [0, -17]
+                    }),
+                    title: feature.properties.name,
+                    riseOnHover: true
+                });
+            },
+            onEachFeature: function (feature, layer) {
+                var content = '<h6>' + feature.properties.name + '</h6>';
+                layer.bindPopup(content);
+            }
+        });
+        $.ajax({
+            methods: "GET",
+            url: health_facility_url,
+            success: function (data) {
+                health_facility.addData(data);
+                map.addLayer(health_facility);
+            }
+        });
+        var mothers_layer = L.geoJson(null, {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: "/static/img/female-2.png",
+                        iconSize: [20, 25],
+                        popupAnchor: [0, -17]
+                    }),
+                    title: feature.properties.name,
+                    riseOnHover: true
+                });
+            },
+            onEachFeature: function (feature, layer) {
+                var content = '<h6>' + feature.properties.name + '</h6>';
+                layer.bindPopup(content);
+            }
+        });
+        $.ajax({
+            methods: "GET",
+            url: mother_data_url,
+            success: function (data) {
+                console.log(data);
+                mothers_layer.addData(data);
+                map.addLayer(mothers_layer);
+                map.fitBounds(mothers_layer.getBounds());
+            }
+        });
+        {#        var latlngs = [[-0.84953874349594, 34.549255371094], [-0.744324, 34.6021]];#}
+        {#        var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);#}
+        {#        map.fitBounds(polyline.getBounds());#}
+        {#        var latln = L.latLng(-0.84953874349594, 34.549255371094);#}
+        {#        var ltln = L.latLng(-0.744324, 34.6021);#}
+        {#        console.log(latln.distanceTo(ltln));#}
+
+
+    </script>
+    {#    <script>    var distance_map = L.map('distance-map', {#}
+    {#        center: [-1.30323720, 36.77813964],#}
+    {#        zoom: 6#}
+    {#    });#}
+    {#    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {#}
+    {#        maxZoom: 16,#}
+    {#        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'#}
+    {#    }).addTo(distance_map);#}
+    {#    var dist_health_facility = L.geoJson(null, {#}
+    {#        pointToLayer: function (feature, latlng) {#}
+    {#            return L.marker(latlng, {#}
+    {#                icon: L.icon({#}
+    {#                    iconUrl: "/static/img/health-medical.png",#}
+    {#                    iconSize: [20, 25],#}
+    {#                    popupAnchor: [0, -17]#}
+    {#                }),#}
+    {#                title: feature.properties.name,#}
+    {#                riseOnHover: true#}
+    {#            });#}
+    {#        },#}
+    {#        onEachFeature: function (feature, layer) {#}
+    {#            var content = '<h6>' + feature.properties.name + '</h6>';#}
+    {#            layer.bindPopup(content);#}
+    {#        }#}
+    {#    });#}
+    {#    $.ajax({#}
+    {#        methods: "GET",#}
+    {#        url: health_facility_url,#}
+    {#        success: function (data) {#}
+    {#            dist_health_facility.addData(data);#}
+    {#            distance_map.addLayer(dist_health_facility);#}
+    {#        }#}
+    {#    });#}
+    {#    var dist_mothers_layer = L.geoJson(null, {#}
+    {#        pointToLayer: function (feature, latlng) {#}
+    {#            return L.marker(latlng, {#}
+    {#                icon: L.icon({#}
+    {#                    iconUrl: "/static/img/hospital-building.png",#}
+    {#                    iconSize: [20, 25],#}
+    {#                    popupAnchor: [0, -17]#}
+    {#                }),#}
+    {#                title: feature.properties.name,#}
+    {#                riseOnHover: true#}
+    {#            });#}
+    {#        },#}
+    {#        onEachFeature: function (feature, layer) {#}
+    {#            var content = '<h6>' + feature.properties.name + '</h6>';#}
+    {#            layer.bindPopup(content);#}
+    {#        }#}
+    {#    });#}
+    {#    $.ajax({#}
+    {#        methods: "GET",#}
+    {#        url: mother_data_url,#}
+    {#        success: function (data) {#}
+    {#            console.log(data);#}
+    {#            dist_mothers_layer.addData(data);#}
+    {#            distance_map.addLayer(dist_mothers_layer);#}
+    {#            map.fitBounds(mothers_layer.getBounds());#}
+    {#        }#}
+    {#    });#}
+    {#    var latlngs = [[-0.84953874349594, 34.549255371094], [-0.744324, 34.6021]];#}
+    {##}
+    {#    </script>#}
+
+{% endblock page-js %}

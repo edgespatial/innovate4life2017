@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block viewer %}
+    <div class="container">
+        {% for group in groups %}
+            <table class="panel-body table">
+                <tr>
+                    <th>Name</th>
+                    <th>Group Details</th>
+                </tr>
+                <tr>
+                    <td>{{ group.name|title }}</td>
+                    <td><a href="{% url 'group_detail' group.id %}" class="btn btn-primary"
+                           role="button">View</a>
+                    </td>
+                </tr>
+            </table>
+        {% endfor %}
+        <a href="{% url 'donation_view' %}" class="btn btn-primary btn-lg active" role="button">Adopt a Mum / Donate</a>
+    </div>
+{% endblock viewer %}

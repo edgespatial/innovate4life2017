@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href='{% static "css/leaflet.css" %}'>
+{% endblock css %}
+{% block viewer %}
+    <div class="container">
+        <h2>{{ group.name }} Details</h2>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="group-map" style="height: 250px; width: 100%;"></div>
+            </div>
+            <div class="col-xs-6">
+                <div>
+                    <p><strong>Health Facility: </strong>{{ group.health_facility.name|title }}</p>
+                    <p><strong>Leader:</strong> {{ group.leader.name }}</p>
+                    <p><strong>Number of Members:</strong></p>
+                    <p><strong>Date / Year Formed:</strong> {{ group.year_formed }}</p>
+                    <a href="{% url 'donation_view' %}" class="btn btn-primary"
+                       role="button">Support / Donate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock viewer %}
+{% block js %}
+    <script src='{% static "js/leaflet.js" %}'></script>
+    <script>
+        var map = L.map('group-map', {
+            center: [-1.30323720, 36.77813964],
+            zoom: 6
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 16,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var myIcon = L.icon({
+            iconUrl: '{% static 'img/meetups.png' %}',
+            iconSize: [35, 40],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -76]
+        });
+        var content = '<h6>' + '{{ group.name }}' + '<h6>';
+        var latlng = [{{ group.meeting_location.y }}, {{ group.meeting_location.x }}];
+        var marker = L.marker(latlng, {icon: myIcon}).addTo(map);
+        marker.bindPopup(content).openPopup();
+        map.setView(latlng)
+    </script>
+{% endblock js %}
